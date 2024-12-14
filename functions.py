@@ -9,8 +9,10 @@ def get_todos(filepath=FILEPATH):
     return todos_local
 
 def write_todos(todos_arg, filepath = FILEPATH):
-    """Write the todo items list in the text files."""
-    with open(filepath,'w') as file:
+    """ Write the todos items list in the text files"""
+    if isinstance(todos_arg, list):
+        todos_arg = ''.join(todos_arg)
+    with open(filepath, 'w') as file:
         file.write(todos_arg)
 
 if __name__  == "__main__":
